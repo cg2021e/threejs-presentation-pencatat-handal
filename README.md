@@ -11,6 +11,8 @@ Presents by Pencatat Handal Team
 05111940000017    Richard Asmarakandi
 ```
 
+---
+
 In this chapter, we will explain the use of more advanced geometries and meshes by dividing them into two subchapters.
 
 ## A. Advanced Geometries and Binary Operations
@@ -24,7 +26,7 @@ In this chapter, we will explain the use of more advanced geometries and meshes 
 7. Creating and Rendering Text
 8. Using Binary Operations to Combine Meshes
 
-## A. Creating and Loading Advanced Meshes and Geometries
+## B. Creating and Loading Advanced Meshes and Geometries
 
 1. Geometry Grouping and Merging
 2. Loading Geometries from External Resources
