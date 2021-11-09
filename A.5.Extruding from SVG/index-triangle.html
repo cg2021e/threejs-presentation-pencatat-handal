@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Example 06.05 - Extrude SVG</title>
+    <script type="text/javascript" charset="UTF-8" src="../libs/three/three.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../libs/three/controls/TrackballControls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../libs/other/d3-threeD.js"></script>
+    <script type="text/javascript" src="../libs/util/Stats.js"></script>
+    <script type="text/javascript" src="../libs/util/dat.gui.js"></script>
+
+    <script type="text/javascript" src="../util.js"></script>
+    <script type="text/javascript" src="index-triangle.js"></script>
+    <link rel="stylesheet" href="../default.css">
+</head>
+
+<body>
+    <div id="triangle" style="display:none">
+        <svg x="0px" y="0px" width="210px"
+            height="400px">
+            <g>
+                <path id="triangle-path" 
+                    d="M150 0 L75 200 L225 200 Z"
+                />
+            </g>
+
+        </svg>
+    </div>
+
+    <div id="webgl-output">
+        <script type="text/javascript">
+            (function () {
+                init()
+            })();
+        </script>
+</body>
+
+
+</html>
