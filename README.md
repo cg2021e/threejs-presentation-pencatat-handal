@@ -21,7 +21,7 @@ In this chapter, we will explain the use of more advanced geometries and meshes 
 2. THREE.LathexGeometry
 3. THREE.ExtrudeGeometry
 4. THREE.TubeGeometry
-5. THREE.ShapeGeometry
+5. Extruding from SVG
 6. THREE.ParametricGeometry
 7. Creating and Rendering Text
 8. Using Binary Operations to Combine Meshes
