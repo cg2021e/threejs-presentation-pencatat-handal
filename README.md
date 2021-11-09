@@ -21,9 +21,9 @@ In this chapter, we will explain the use of more advanced geometries and meshes 
 2. THREE.LathexGeometry
 3. THREE.ExtrudeGeometry
 4. THREE.TubeGeometry
-5. Extruding from SVG
-6. THREE.ParametricGeometry
-7. Creating and Rendering Text
+5. [Extruding from SVG](https://github.com/cg2021e/threejs-presentation-pencatat-handal/tree/master/A.5.Extruding%20from%20SVG)
+6. [THREE.ParametricGeometry](https://github.com/cg2021e/threejs-presentation-pencatat-handal/tree/master/A.6.THREE.ParametricGeometry)
+7. [Creating and Rendering Text](https://github.com/cg2021e/threejs-presentation-pencatat-handal/tree/master/A.7.Creating%20and%20Rendering%20Text)
 8. Using Binary Operations to Combine Meshes
 
 ## B. Creating and Loading Advanced Meshes and Geometries
