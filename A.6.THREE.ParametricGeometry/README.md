@@ -85,3 +85,121 @@ As you can see in this example, with a few lines of code, we can create really i
         </tr>
     </tbody>
 </table>
+
+Here are some of the functions that THREE.ParametricGeometry has,
+
+<table>
+    <thead>
+        <tr>
+            <th  style="text-align: center;">Klein</th>
+            <th  style="text-align: center;">Radial Wave</th>
+            <th  style="text-align: center;">Mobius</th>
+            <th  style="text-align: center;">Mobius 3D</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td  style="text-align: center;">
+                <img src="img/klein.gif" width="200px">
+            </td>
+            <td  style="text-align: center;">
+                <img src="img/radialwave.gif" width="200px">
+            </td>
+            <td  style="text-align: center;">
+                <img src="img/mobius.gif" width="200px">
+            </td>
+            <td  style="text-align: center;">
+                <img src="img/mobius3d.gif" width="200px">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+- Klein
+
+  ```js
+  klein = function (u, v, optionalTarget) {
+    var result = optionalTarget || new THREE.Vector3();
+
+    u *= Math.PI;
+    v *= 2 * Math.PI;
+
+    u = u * 2;
+    var x, y, z;
+    if (u < Math.PI) {
+      x =
+        3 * Math.cos(u) * (1 + Math.sin(u)) +
+        2 * (1 - Math.cos(u) / 2) * Math.cos(u) * Math.cos(v);
+      z =
+        -8 * Math.sin(u) -
+        2 * (1 - Math.cos(u) / 2) * Math.sin(u) * Math.cos(v);
+    } else {
+      x =
+        3 * Math.cos(u) * (1 + Math.sin(u)) +
+        2 * (1 - Math.cos(u) / 2) * Math.cos(v + Math.PI);
+      z = -8 * Math.sin(u);
+    }
+
+    y = -2 * (1 - Math.cos(u) / 2) * Math.sin(v);
+
+    return result.set(x, y, z);
+  };
+  ```
+
+- Radial Wave
+
+  ```js
+  radialWave = function (u, v, optionalTarget) {
+    var result = optionalTarget || new THREE.Vector3();
+    var r = 50;
+
+    var x = Math.sin(u) * r;
+    var z = Math.sin(v / 2) * 2 * r;
+    var y = (Math.sin(u * 4 * Math.PI) + Math.cos(v * 2 * Math.PI)) * 2.8;
+
+    return result.set(x, y, z);
+  };
+  ```
+
+- Mobius
+
+  ```js
+  mobius = function (u, t, optionalTarget) {
+    var result = optionalTarget || new THREE.Vector3();
+    u = u - 0.5;
+    var v = 2 * Math.PI * t;
+
+    var x, y, z;
+
+    var a = 2;
+    x = Math.cos(v) * (a + u * Math.cos(v / 2));
+    y = Math.sin(v) * (a + u * Math.cos(v / 2));
+    z = u * Math.sin(v / 2);
+
+    return result.set(x, y, z);
+  };
+  ```
+
+- Mobius 3D
+
+  ```js
+  mobius3d = function (u, t, optionalTarget) {
+    var result = optionalTarget || new THREE.Vector3();
+
+    u *= Math.PI;
+    t *= 2 * Math.PI;
+
+    u = u * 2;
+    var phi = u / 2;
+    var major = 2.25,
+      a = 0.125,
+      b = 0.65;
+    var x, y, z;
+    x = a * Math.cos(t) * Math.cos(phi) - b * Math.sin(t) * Math.sin(phi);
+    z = a * Math.cos(t) * Math.sin(phi) + b * Math.sin(t) * Math.cos(phi);
+    y = (major + x) * Math.sin(u);
+    x = (major + x) * Math.cos(u);
+
+    return result.set(x, y, z);
+  };
+  ```
