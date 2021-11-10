@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Learn SVG Path</title>
 </head>
 <body>
     <svg viewbox="0 0 100 100" style="border: green solid;">
@@ -28,7 +28,10 @@
         <path stroke="green" stroke-width="0.2" d="M0 80 H100" />
         <path stroke="green" stroke-width="0.2" d="M0 90 H100" />
 
-        <path stroke="red" stroke-width="0.2" d="M0 0 L10 20 H50 V10" fill="red" />
+        <path stroke="red" stroke-width="0.2" d="M10 10 L20 20 H50 V10" fill="red" />
+        <path stroke="blue" stroke-width="0.2" d="M10 30 l10 10 h30 v-10" fill="blue" />
+        <path stroke="green" stroke-width="0.2" d="M10 50 l10 10 Q20 50, 50 60 T70 60" fill="green" />
+        <path stroke="black" stroke-width="0.2" d="M10 70 l10 10 C20 70, 60 90, 80 80  S90 80, 95 80 v-10"
     </svg>
 </body>
 </html>

@@ -28,13 +28,19 @@ function init() {
     });
 
     var fontload2 = new THREE.FontLoader();
-    fontload2.load( '../../assets/fonts/helvetiker_bold.typeface.json', function ( response ) {
+    fontload2.load( 'helvetiker_bold.typeface.json', function ( response ) {
     font_helvetiker_bold = response;
     });
 
     var fontload3 = new THREE.FontLoader();
-    fontload3.load( '../../assets/fonts/helvetiker_regular.typeface.json', function ( response ) {
+    fontload3.load( 'helvetiker_regular.typeface.json', function ( response ) {
     font_helvetiker_regular = response;
+    });
+    
+    var tffload = new THREE.TTFLoader();
+    tffload.load('Kitty_Katt.ttf', function(response){
+        let fontload4 = new THREE.Font(response);
+        font_kitty_katt = fontload4;
     });
 
     var controls = new function () {
@@ -67,6 +73,9 @@ function init() {
         case 'helvetiker bold': 
             controls.font = font_helvetiker_bold
             break;
+        case 'kitty katt':
+            controls.font = font_kitty_katt
+            break;
         }
 
         redrawGeometryAndUpdateUI(gui, scene, controls, function() {
@@ -97,7 +106,7 @@ function init() {
     var gui = new dat.GUI();
     gui.add(controls, 'size', 0, 200).onChange(controls.redraw);
     gui.add(controls, 'height', 0, 200).onChange(controls.redraw);
-    gui.add(controls, 'fontName', ['bitstream vera sans mono', 'helvetiker', 'helvetiker bold']).onChange(controls.redraw);
+    gui.add(controls, 'fontName', ['bitstream vera sans mono', 'helvetiker', 'helvetiker bold', 'kitty katt']).onChange(controls.redraw);
     gui.add(controls, 'bevelThickness', 0, 10).onChange(controls.redraw);
     gui.add(controls, 'bevelSize', 0, 10).onChange(controls.redraw);
     gui.add(controls, 'bevelSegments', 0, 30).step(1).onChange(controls.redraw);
@@ -113,6 +122,12 @@ function init() {
     
     gui.add(controls, 'castShadow').onChange(function(e) {controls.mesh.castShadow = e})
     gui.add(controls, 'groundPlaneVisible').onChange(function(e) {groundPlane.material.visible = e})
+
+    window.addEventListener('resize', function(){
+        renderer.setSize(this.window.innerWidth, this.window.innerHeight);
+        camera.aspect = this.window.innerWidth/this.window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
 
     function render() {
     stats.update();

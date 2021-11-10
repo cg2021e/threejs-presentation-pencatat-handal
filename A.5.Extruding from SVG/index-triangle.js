@@ -84,6 +84,12 @@ function init() {
     var step = 0;
     controls.redraw();
     render();
+
+    window.addEventListener('resize', function(){
+        renderer.setSize(this.window.innerWidth, this.window.innerHeight);
+        cam.aspect = this.window.innerWidth/this.window.innerHeight;
+        cam.updateProjectionMatrix();
+    });
     
     function render() {
     stats.update();
