@@ -2,7 +2,7 @@
 
 ## Rendering Text
 
-Rendering text in Three.js is very easy. All you have to do is define the font you want to use and use the same extrude properties we saw when we discussed `THREE.ExtrudeGeometry`. The following screenshot shows the 07-text-geometry.html example of how to render text in Three.js:
+Rendering text in Three.js is very easy. All you have to do is define the font you want to use and use the same extrude properties we saw when we discussed `THREE.ExtrudeGeometry`.
 
 The code required to create this 3D text is as follows:
 
@@ -29,7 +29,6 @@ var options = {
   steps: 1,
 };
 
-// the createMesh is the same function we saw earlier
 text = createMesh(new THREE.TextGeometry("Learning Three.js", options));
 scene.add(text);
 ```
